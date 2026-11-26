@@ -46,6 +46,6 @@ export function AssignmentForm({ courses }: { courses: Pick<Course, "id" | "titl
     <label className="field">Attachment PDF (optional, 20 MB max)<input type="file" accept="application/pdf,.pdf" disabled={busy} onChange={(event) => void upload(event.target.files?.[0])} /></label>
     <input type="hidden" name="attachment_url" value={filePath} />
     {status && <p className={status.includes("up to") || status.includes("failed") || status.includes("sign in") ? "notice error" : "muted"} role="status">{status}</p>}
-    <SubmitButton disabled={busy} loading={busy} loadingText={busy ? "Uploading…" : "Saving…"}>Create assignment</SubmitButton>
+    <SubmitButton disabled={busy} loading={busy}>Create assignment</SubmitButton>
   </form>;
 }

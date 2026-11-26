@@ -31,7 +31,7 @@ export function LoadingLink({ href, children, className }: Props) {
   return (
     <Link href={href} className={className} onClick={navigate} aria-busy={isPending}>
       {children}
-      {isPending && <span className="button-loader" aria-hidden="true" />}
+      {isPending && <span className="button-spinner" aria-hidden="true" />}
     </Link>
   );
 }

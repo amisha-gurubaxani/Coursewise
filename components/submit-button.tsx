@@ -8,7 +8,6 @@ type Props = {
   className?: string;
   disabled?: boolean;
   loading?: boolean;
-  loadingText?: string;
   nativeSubmit?: boolean;
 };
 
@@ -17,7 +16,6 @@ export function SubmitButton({
   className = "button",
   disabled = false,
   loading = false,
-  loadingText = "Saving…",
   nativeSubmit = false,
 }: Props) {
   const { pending } = useFormStatus();
@@ -36,8 +34,8 @@ export function SubmitButton({
         }
       }}
     >
-      {isLoading ? loadingText : children}
-      {isLoading && <span className="button-loader" aria-hidden="true" />}
+      {children}
+      {isLoading && <span className="button-spinner" aria-hidden="true" />}
     </button>
   );
 }

@@ -64,7 +64,7 @@ export function FileUpload({ bucket, action, fields, label }: Props) {
       {(bucket === "course-materials") && <input type="hidden" name="file_size_bytes" value={size} />}
       <label className="field">{label}<input type="file" accept="application/pdf,.pdf" required disabled={busy} onChange={(event) => void upload(event.target.files?.[0])} /></label>
       {status && <p className={status.includes("failed") || status.includes("Choose") || status.includes("sign in") ? "notice error" : "muted"} role="status">{status}</p>}
-      <SubmitButton disabled={busy || !path} loading={busy} loadingText={busy ? "Uploading…" : "Saving…"}>Save PDF</SubmitButton>
+      <SubmitButton disabled={busy || !path} loading={busy}>Save PDF</SubmitButton>
     </form>
   );
 }
