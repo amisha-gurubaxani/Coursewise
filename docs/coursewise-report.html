@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Coursewise Mini Project Report - Amisha Gurubaxani</title>
+  <style>
+    @page { size: A4; margin: 18mm 17mm 18mm; }
+    @page wide { size: A4 landscape; margin: 12mm; }
+    :root { color: #17243a; font-family: "Times New Roman", Georgia, serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-size: 11pt; line-height: 1.48; }
+    h1 { color: #2347aa; font-size: 18pt; margin: 0 0 16pt; page-break-before: always; }
+    h2 { color: #315efb; font-size: 13pt; margin: 15pt 0 5pt; page-break-after: avoid; }
+    h3 { color: #315efb; font-size: 11pt; margin: 12pt 0 4pt; }
+    p { margin: 0 0 8pt; text-align: justify; }
+    ul, ol { margin: 4pt 0 10pt 22pt; padding-left: 12pt; }
+    li { margin: 0 0 5pt; }
+    .cover { min-height: 250mm; display: flex; flex-direction: column; justify-content: center; text-align: center; page-break-after: always; }
+    .cover p { text-align: center; margin: 5pt 0; }
+    .cover .uni-wordmark { display: block; width: 444pt; max-width: 100%; height: auto; margin: 0 auto 10pt; }
+    .cover .uni-crest { display: block; width: 66pt; height: auto; margin: 0 auto 10pt; }
+    .cover .uni { color: #17243a; font-weight: bold; font-size: 18pt; }
+    .cover .report { font-weight: bold; color: #315efb; font-size: 15pt; margin-top: 20pt; }
+    .cover .project { font-weight: bold; color: #17243a; font-size: 20pt; margin: 15pt 0; }
+    .cover .student { font-size: 15pt; font-weight: bold; margin-top: 10pt; }
+    .certificate { min-height: 250mm; page-break-after: always; padding-top: 25mm; }
+    .certificate h1 { text-align: center; page-break-before: auto; margin-bottom: 30pt; }
+    .certificate .uni-wordmark { display: block; width: 444pt; max-width: 100%; height: auto; margin: 0 auto 18pt; }
+    .certificate .signatures { margin-top: 55pt; text-align: center; white-space: pre-wrap; }
+    .index { page-break-after: always; }
+    .index-title { page-break-before: always; text-align: center; color: #2347aa; font-size: 20pt; font-weight: bold; margin: 0 0 20pt; }
+    .index ol { list-style: none; padding: 0; margin: 22pt 25pt; }
+    .index li { margin: 0 0 12pt; border-bottom: 1px dotted #9aa8be; padding-bottom: 3pt; }
+    .index a { color: #2347aa; text-decoration: none; }
+    .figure-wide { page: wide; break-before: page; break-after: page; text-align: center; margin: 0; }
+    .figure-wide img { display: block; width: 100%; max-height: 180mm; object-fit: contain; margin: auto; }
+    figure { margin: 14pt auto; text-align: center; page-break-inside: avoid; }
+    figure img { max-width: 100%; height: auto; }
+    figcaption { font-size: 9pt; font-style: italic; margin-top: 5pt; }
+    .ui-shot { width: 440pt; }
+    .note { border-left: 3px solid #315efb; padding: 8pt 12pt; background: #f2f5ff; margin: 10pt 0; }
+    .small { font-size: 9pt; color: #56657a; }
+    .footer-note { margin-top: 22pt; border-top: 1px solid #dce2ed; padding-top: 8pt; font-size: 9pt; color: #66748a; }
+    @media screen {
+      body { max-width: 900px; margin: 36px auto; padding: 40px 58px; box-shadow: 0 4px 28px #17243a20; }
+      .cover, .certificate, .index, h1, .figure-wide { break-after: auto; }
+      .figure-wide { margin: 30px 0; }
+    }
+  </style>
+</head>
+<body>
+  <section class="cover">
+    <img class="uni-wordmark" src="assets/amity-university-wordmark.png" alt="Amity University wordmark">
+    <img class="uni-crest" src="assets/amity-university-crest.png" alt="Amity University crest">
+    <p>-------------- CHHATTISGARH --------------</p>
+    <p class="uni">AMITY UNIVERSITY CHHATTISGARH</p>
+    <p class="report">A MINI PROJECT REPORT</p>
+    <p class="project">COURSE MANAGEMENT SYSTEM<br>(COURSEWISE)</p>
+    <p>Software Engineering Lab (CBCA40303)</p>
+    <p>Submitted in partial fulfilment of the requirements for the award of the degree of</p>
+    <p><strong>Bachelor of Computer Application</strong><br>(Hons./Hons. with Research)</p>
+    <p>By</p>
+    <p class="student">Amisha Gurubaxani</p>
+    <p><strong>Enrolment Number: A809150825057</strong></p>
+    <p>Semester - 3</p>
+    <p>Submitted to<br>Ms Jeetu Singh, Faculty</p>
+    <p><strong>DEPARTMENT OF COMPUTER SCIENCE &amp; ENGINEERING</strong></p>
+    <p><strong>AMITY INSTITUTE OF INFORMATION TECHNOLOGY</strong></p>
+    <p><strong>AMITY UNIVERSITY CHHATTISGARH</strong></p>
+    <p>MANTH / KHARORA, (OPP.-ITBP) SH-09<br>RAIPUR, CHHATTISGARH - 493225</p>
+    <p>Batch: 2025-2029</p>
+  </section>
+
+  <section class="certificate">
+    <img class="uni-wordmark" src="assets/amity-university-wordmark.png" alt="Amity University wordmark">
+    <h1>CERTIFICATE BY THE EXAMINER</h1>
+    <p>This is to certify that this is a bona fide record of the work done by <strong>Amisha Gurubaxani</strong>, bearing enrolment number <strong>A809150825057</strong>, in the Bachelor of Computer Application (Hons./Hons. with Research), Semester 3, from Amity Institute of Information Technology (AIIT), Amity University Chhattisgarh, in the Software Engineering Lab with Course Code CBCA40303.</p>
+    <p style="margin-top:34pt">University examination held on: __________________________________________</p>
+    <div class="signatures">_________________________          _________________________          _________________________
+Faculty In-charge                         HoD, CSE                              Director, ASET
+
+
+_________________________                                      _________________________
+Internal Examiner                                                External Examiner</div>
+  </section>
+
+  <nav class="index" id="index">
+    <p class="index-title">INDEX</p>
+    <ol>
+      <li><a href="#introduction">1. Introduction</a></li>
+      <li><a href="#methodology">2. Methodology Used</a></li>
+      <li><a href="#architecture">3. System Architecture</a></li>
+      <li><a href="#database">4. Database Design</a></li>
+      <li><a href="#features">5. Features</a></li>
+      <li><a href="#procedure">6. Procedure</a></li>
+      <li><a href="#results">7. Results and Benefits</a></li>
+      <li><a href="#future">8. Future Enhancements</a></li>
+      <li><a href="#conclusion">9. Conclusion and References</a></li>
+    </ol>
+  </nav>
+
+  <section>
+    <h1 id="introduction">1. Introduction</h1>
+    <p>Coursewise is a role-based course management web application for organizing teaching and learning activities in one place. It provides separate student and teacher workspaces and connects course information, semester structure, study resources, assignment submissions, and grading feedback.</p>
+    <h2>1.1 Problem statement</h2>
+    <p>In a conventional classroom workflow, course outlines, PDFs, recommended books, assignment instructions, deadlines, submitted work, and grades may be distributed through disconnected channels. Students can struggle to locate the correct material for their program and semester, while teachers repeat administrative work and may lack a consistent view of submissions and feedback. These fragmented processes make course information harder to find and progress harder to follow.</p>
+    <h2>1.2 Aim and objectives</h2>
+    <ul>
+      <li>Provide one web portal for semester-based course information and learning resources.</li>
+      <li>Give students a clear way to find courses and assignments for their enrolled program and batch.</li>
+      <li>Let teachers publish course content, set assignment deadlines, and review and grade submitted work.</li>
+      <li>Protect student, course, and file access with authenticated roles and database/storage policies.</li>
+    </ul>
+    <h2>1.3 Proposed solution and scope</h2>
+    <p>The solution is Coursewise: a browser application with a Next.js interface and Supabase services for authentication, PostgreSQL data, and private PDF storage. Student registration records a program-batch enrollment. Teachers can create program courses, organize modules, upload PDF resources, add textbook details, and create assignments. Students can browse courses by semester, download permitted resources, submit PDFs, and view grading status and feedback.</p>
+    <p>The current repository implements student and teacher workflows and database support for an admin role. It does not provide a dedicated admin-management interface, institutional identity verification, notifications, or measured usage/performance outcomes; these are possible future improvements.</p>
+  </section>
+
+  <section>
+    <h1 id="methodology">2. Methodology Used</h1>
+    <p>The project follows a requirement-driven, iterative software development approach. Core user problems were translated into role-based workflows, then the data model, interface routes, server actions, and access rules were implemented together. Each feature is organized around a real task (for example, publishing a course, finding a semester assignment, or grading a submission), allowing the interface and database rules to stay aligned.</p>
+    <h2>2.1 Development stages</h2>
+    <ol>
+      <li><strong>Requirement analysis:</strong> identify student and teacher needs, semester/program organization, and file-based course work.</li>
+      <li><strong>System design:</strong> define the Next.js/Supabase architecture, relational entities, role boundaries, and private storage buckets.</li>
+      <li><strong>Implementation:</strong> build App Router pages and React components, server actions, Supabase queries, SQL migrations, triggers, and row-level security policies.</li>
+      <li><strong>Verification:</strong> run the application locally, inspect the real landing and sign-in screens, and review route, data, and storage policies against the intended workflows.</li>
+    </ol>
+    <h2>2.2 Technology stack</h2>
+    <ul>
+      <li>Next.js App Router and React with TypeScript for server-rendered pages, client-side forms, and server actions.</li>
+      <li>Tailwind CSS and project CSS for responsive layouts and shared visual styling.</li>
+      <li>Supabase Auth for email/password identity and session management.</li>
+      <li>Supabase PostgreSQL for structured academic records, integrity constraints, database functions, triggers, and row-level security (RLS).</li>
+      <li>Supabase Storage for private PDF buckets and access-controlled file delivery.</li>
+      <li>SQL migration files and seed data for repeatable database setup.</li>
+    </ul>
+    <h2>2.3 Main roles</h2>
+    <ul>
+      <li><strong>Student:</strong> registers against a program and batch; views course materials and assignments; submits work and checks grades/feedback.</li>
+      <li><strong>Teacher:</strong> manages course content and assignments, views submissions, and records marks and feedback.</li>
+      <li><strong>Admin:</strong> supported by role-aware server/database policies for selected staff functions, but a separate admin portal is not included.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1 id="architecture">3. System Architecture</h1>
+    <p>The browser communicates with a Next.js App Router application. Server components load authenticated data; server actions validate and write user changes. The Supabase server client manages cookie-backed sessions and calls Auth, PostgreSQL, and Storage. Middleware checks signed-in portal access and role. PostgreSQL RLS and Storage policies provide an additional authorization boundary, so access is not based only on what the interface displays.</p>
+    <h2>3.1 Request and data flow</h2>
+    <ol>
+      <li>A user opens the web portal and signs in with an email and password through Supabase Auth.</li>
+      <li>The authenticated session is carried in cookies; middleware routes users to the appropriate student or teacher workspace.</li>
+      <li>The page/server action queries or updates PostgreSQL. Database RLS policies check the current identity, role, enrollment, and record ownership.</li>
+      <li>PDF uploads go to private Supabase Storage buckets. The application stores the object path in PostgreSQL and produces short-lived signed download links when access is allowed.</li>
+    </ol>
+    <h2>3.2 Security and access design</h2>
+    <ul>
+      <li>Portal routes are protected by middleware; server actions also require appropriate roles for staff-only operations.</li>
+      <li>RLS policies limit student course visibility to the student's program and current batch-semester rules and restrict submissions to their owner.</li>
+      <li>Submission triggers prevent students from setting grades or feedback and prevent teachers from changing student file/ownership fields while grading.</li>
+      <li>Storage buckets are private and accept PDF MIME types with configured size limits. Course resources and submissions use per-user object paths.</li>
+      <li>Download links are signed and time-limited (10 minutes in the application helper). Production deployments should keep RLS enabled and never expose a service-role key to the browser.</li>
+    </ul>
+  </section>
+  <figure class="figure-wide">
+    <img src="assets/architecture.png" alt="Architecture diagram showing the browser, Next.js application, Supabase Auth, PostgreSQL and Storage.">
+    <figcaption>Figure 1. Coursewise application and Supabase service architecture.</figcaption>
+  </figure>
+
+  <section>
+    <h1 id="database">4. Database Design</h1>
+    <p>The data model is relational and uses UUID primary keys. Foreign keys connect programs to batches and courses, courses to modules, materials, textbooks and assignments, and assignments to student submissions. Supabase Auth owns login identities; the profiles table extends each identity with the app role and display information.</p>
+  </section>
+  <figure class="figure-wide">
+    <img src="assets/database-erd.png" alt="Database ER diagram for profiles, programs, batches, enrollments, courses, modules, materials, textbooks, assignments and submissions.">
+    <figcaption>Figure 2. Main Coursewise database entities and relationships. Auth identities are managed by Supabase Auth.</figcaption>
+  </figure>
+  <section>
+    <h2>4.1 Core entities</h2>
+    <ul>
+      <li><strong>profiles:</strong> user identity reference, email, full name, role, and optional avatar.</li>
+      <li><strong>programs and batches:</strong> degree/program metadata and its cohorts, year range, and current semester.</li>
+      <li><strong>enrollments:</strong> student-to-batch membership and active/completed/dropped status; a partial unique index allows one active enrollment per student.</li>
+      <li><strong>courses:</strong> program-specific code, title, semester, credits, and creator.</li>
+      <li><strong>course_modules and course_materials:</strong> ordered syllabus modules and attached PDF learning resources.</li>
+      <li><strong>textbooks:</strong> recommended title, author, edition, ISBN, and optional HTTP(S) resource URL.</li>
+      <li><strong>assignments:</strong> course, teacher, title, due date, maximum marks, instructions, and optional attachment.</li>
+      <li><strong>submissions:</strong> one student submission per assignment, submitted file/notes, marks, feedback, and grading timestamp.</li>
+    </ul>
+    <h2>4.2 Integrity and access rules</h2>
+    <p>Constraints protect unique program/course/module codes, valid semester ranges, positive credits/marks, and one submission per student-assignment pair. Triggers create the profile and student enrollment after signup, protect roles from user self-editing, validate submission ownership, and support module reordering. RLS policies separate public program/batch lookup from authenticated course access and staff-only management. The five migration files in <code>supabase/migrations/</code> are applied in filename order; <code>supabase/seed.sql</code> inserts sample BCA, B.Tech CSE, and B.Tech IT programs and batches.</p>
+  </section>
+
+  <section>
+    <h1 id="features">5. Features</h1>
+    <h2>5.1 Student features</h2>
+    <ul>
+      <li>Student registration with program and batch selection; account profile and enrollment are created by the database signup trigger.</li>
+      <li>Student dashboard summarizing available current-semester courses and upcoming assignments.</li>
+      <li>Semester course browsing, including an all-semesters filter; each course shows its code, credits, modules, materials, and recommended textbooks.</li>
+      <li>PDF downloads through signed links and assignment list/status views with deadline information.</li>
+      <li>PDF assignment submission with optional notes, resubmission before grading where permitted, and status/grade/feedback visibility.</li>
+    </ul>
+    <h2>5.2 Teacher features</h2>
+    <ul>
+      <li>Teacher dashboard counts for courses, created assignments, and submissions, with quick links to course and assignment tasks.</li>
+      <li>Create and filter courses by program and semester; organize modules and move them up or down.</li>
+      <li>Upload course PDFs, recommend textbooks, and create assignments with due dates, maximum marks, instructions, and optional PDF attachments.</li>
+      <li>Review assignment submissions, download student work, and record marks and feedback.</li>
+    </ul>
+    <h2>5.3 Platform and security features</h2>
+    <ul>
+      <li>Role-based navigation and protected student/teacher routes.</li>
+      <li>PostgreSQL RLS, integrity constraints, triggers, private storage buckets, PDF-only upload checks, and signed download URLs.</li>
+      <li>Responsive page layout and shared navigation/components for common workflows.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1 id="procedure">6. Procedure</h1>
+    <h2>6.1 Local installation and configuration</h2>
+    <ol>
+      <li>Install Node.js and npm, then open a terminal in the project folder.</li>
+      <li>Run <code>npm install</code> to install the dependencies listed in <code>package.json</code>.</li>
+      <li>Create a Supabase project. In its SQL editor, run every file in <code>supabase/migrations/</code> in filename order, then run <code>supabase/seed.sql</code>.</li>
+      <li>Copy <code>.env.example</code> to <code>.env</code> and set <code>NEXT_PUBLIC_SUPABASE_URL</code> and <code>NEXT_PUBLIC_SUPABASE_ANON_KEY</code> to the project URL and publishable/anon key. Do not use a service-role key in client-exposed variables.</li>
+      <li>In Supabase Auth, set the local site URL to <code>http://localhost:3000</code> and enable email/password sign-in. Configure SMTP/email confirmation, or disable email confirmation for a local-only demonstration.</li>
+      <li>Start the web application with <code>npm run dev</code> and visit <code>http://localhost:3000</code>.</li>
+    </ol>
+    <h2>6.2 Student workflow</h2>
+    <ol>
+      <li>Choose <strong>Create account</strong>, enter a name/email/password, select Student, then choose the correct program and batch.</li>
+      <li>Confirm the account if email confirmation is enabled, then sign in. The student is sent to the student dashboard.</li>
+      <li>Open Courses. The dashboard defaults to the current semester; use the semester selector to view another semester or all semesters.</li>
+      <li>Open a course to read its modules and download available PDF notes; review recommended textbook details/links.</li>
+      <li>Open Assignments, choose the relevant semester, and select an assignment to see instructions, due date, and any attachment.</li>
+      <li>Upload a PDF (20 MB maximum), optionally add student notes, and save the submission. Return to the assignment list/detail to check submission and grading status.</li>
+    </ol>
+    <h2>6.3 Teacher workflow</h2>
+    <ol>
+      <li>Create an account and choose Teacher, then sign in to the teacher workspace.</li>
+      <li>Open Courses and create a course with program, course code, title, semester, credits, and description.</li>
+      <li>Open the course to add syllabus modules, reorder them if needed, upload module PDFs (20 MB maximum), and add textbook details or an external resource link.</li>
+      <li>Create an assignment, select its course, provide a title/instructions, due date, maximum marks, and an optional PDF attachment.</li>
+      <li>Open the assignment submissions view, download student work, enter marks within the maximum, and save feedback.</li>
+    </ol>
+    <p class="note"><strong>Operational note:</strong> teacher self-registration is open in this project. A real institution should add an approval/verification process before relying on teacher roles.</p>
+  </section>
+
+  <section>
+    <h1 id="results">7. Results and Benefits</h1>
+    <h2>7.1 Implementation result</h2>
+    <p>The completed application provides a working public landing page and sign-in interface, role-aware student/teacher route structure, course and assignment workflows, a PostgreSQL schema with seed/migration scripts, and private PDF storage policies. The local application was started and the public landing and sign-in screens were captured for this report. Full authenticated workflows depend on a correctly configured Supabase project and test accounts; those were not available for this screenshot capture.</p>
+    <h2>7.2 Benefits achieved</h2>
+    <ul>
+      <li><strong>Centralization:</strong> students can find semester-aligned courses, materials, textbook recommendations, deadlines, submissions, and feedback from one portal.</li>
+      <li><strong>Clear teaching workflow:</strong> teachers can maintain course structure and assignments and review work through a single role-specific workspace.</li>
+      <li><strong>Improved traceability:</strong> due dates, submission timestamps, grades, and feedback are stored with the corresponding assignment and student.</li>
+      <li><strong>Reduced manual coordination:</strong> database-backed enrollment and shared course records reduce reliance on repeated ad-hoc distribution of information.</li>
+      <li><strong>Controlled access:</strong> role checks, RLS, private files, ownership rules, and signed URLs reduce unintended access to academic records and PDFs.</li>
+    </ul>
+    <p>These are qualitative workflow benefits, not measured performance or time-saving claims. The repository contains no pilot study, user survey, or before/after metrics; those should be collected during a real deployment.</p>
+    <h2>7.3 Platform screenshots</h2>
+    <figure>
+      <img class="ui-shot" src="assets/coursewise-landing.png" alt="Coursewise public landing page with student and teacher feature cards.">
+      <figcaption>Figure 3. Coursewise public landing page (captured from the local running application).</figcaption>
+    </figure>
+    <figure>
+      <img class="ui-shot" src="assets/coursewise-sign-in.png" alt="Coursewise email and password sign-in page.">
+      <figcaption>Figure 4. Coursewise sign-in page (captured from the local running application).</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h1 id="future">8. Future Enhancements</h1>
+    <ul>
+      <li><strong>Institutional administration:</strong> add an admin dashboard for teacher approval, enrollment management, semester progression, and course oversight.</li>
+      <li><strong>Notifications:</strong> send email/in-app reminders for new assignments, approaching deadlines, submitted work, and released grades.</li>
+      <li><strong>Learning analytics:</strong> add completion/progress summaries, course participation views, CSV/PDF exports, and optional gradebook reporting.</li>
+      <li><strong>Richer assessment workflows:</strong> support more file formats where appropriate, rubric-based grading, draft states, late-submission rules, and audit history.</li>
+      <li><strong>Accessibility and usability:</strong> conduct keyboard/screen-reader testing, improve empty/error states, and gather student/teacher feedback through a pilot.</li>
+      <li><strong>Production readiness:</strong> add backup/restore procedures, observability, rate limits, email verification, retention policies, and deployment-specific redirect configuration.</li>
+      <li><strong>Mobile experience:</strong> evaluate a progressive web app or dedicated mobile client while retaining the same authenticated backend and access rules.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h1 id="conclusion">9. Conclusion and References</h1>
+    <p>Coursewise addresses the fragmentation of routine academic information by bringing program- and semester-based course content, PDF resources, assignments, submissions, and grading feedback into one web application. The project combines role-aware Next.js workflows with Supabase Auth, PostgreSQL RLS, and private Storage. The delivered foundation is suitable for a demonstration and further institutional pilot; teacher verification, operational measurement, and the proposed administrative/notification enhancements are important next steps.</p>
+    <h2>References and project resources</h2>
+    <ul>
+      <li><code>README.md</code> - local setup, Supabase configuration, storage, and deployment notes.</li>
+      <li><code>supabase/migrations/</code> - database schema, constraints, triggers, RLS policies, and later corrections.</li>
+      <li><code>supabase/seed.sql</code> - example programs and batches.</li>
+      <li><code>app/actions.ts</code>, <code>middleware.ts</code>, <code>app/(dashboard)/</code>, <code>lib/portal-data.ts</code>, and <code>components/</code> - implemented workflows and role-aware UI.</li>
+    </ul>
+    <p class="footer-note">Prepared for the Software Engineering Lab mini project. Product behaviour and schema descriptions are based on the Coursewise source code and Supabase migrations in this repository.</p>
+  </section>
+</body>
+</html>

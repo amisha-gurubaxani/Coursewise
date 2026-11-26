@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1050" viewBox="0 0 1600 1050">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L9 5L1 9Z" fill="#65758d"/>
+    </marker>
+    <style>
+      .title{font:700 34px Arial,sans-serif;fill:#17243a}.subtitle{font:16px Arial,sans-serif;fill:#738097}
+      .name{font:700 17px Arial,sans-serif;fill:#fff}.field{font:14px Arial,sans-serif;fill:#33445d}
+      .meta{font:12px Arial,sans-serif;fill:#dbe4ff}.edge{stroke:#65758d;stroke-width:2.5;fill:none;marker-end:url(#arrow)}
+      .label{font:12px Arial,sans-serif;fill:#55667f;paint-order:stroke;stroke:#f5f7fb;stroke-width:5px}
+      .card{fill:#fff;stroke:#cbd6e6;stroke-width:2}.head{fill:#315efb}.id{font-weight:700}
+    </style>
+  </defs>
+  <rect width="1600" height="1050" rx="22" fill="#f5f7fb"/>
+  <text x="56" y="62" class="title">Coursewise | Database entity relationship diagram</text>
+  <text x="56" y="94" class="subtitle">Supabase PostgreSQL schema — primary records and foreign-key relationships</text>
+  <text x="56" y="122" class="subtitle">Auth identities are maintained by Supabase Auth; profiles.id references auth.users.id.</text>
+
+  <path d="M750 260H830" class="edge"/><text x="758" y="246" class="label">program_id</text>
+  <path d="M600 350V420" class="edge"/><text x="610" y="397" class="label">program_id</text>
+  <path d="M450 510H370" class="edge"/><text x="382" y="498" class="label">batch_id</text>
+  <path d="M220 350V420" class="edge"/><text x="230" y="397" class="label">student_id</text>
+  <path d="M370 190V145H1550V475H1490" class="edge"/><text x="900" y="136" class="label">teacher_id</text>
+  <path d="M980 350V420" class="edge"/><text x="990" y="397" class="label">course_id</text>
+  <path d="M1100 350V390H1340V420" class="edge"/><text x="1170" y="383" class="label">course_id</text>
+  <path d="M1130 260H1190" class="edge"/><text x="1132" y="246" class="label">course_id</text>
+  <path d="M980 600V660" class="edge"/><text x="990" y="642" class="label">module_id</text>
+  <path d="M1340 600V660" class="edge"/><text x="1350" y="642" class="label">assignment_id</text>
+  <path d="M70 320H40V900H1340V840" class="edge"/><text x="740" y="886" class="label">student_id</text>
+
+  <g transform="translate(70 170)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">profiles</text><text x="18" y="72" class="field id">PK id → auth.users</text>
+    <text x="18" y="101" class="field">email · full_name</text><text x="18" y="130" class="field">role · avatar_url</text>
+    <text x="18" y="159" class="field">created_at · updated_at</text>
+  </g>
+  <g transform="translate(450 170)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">programs</text><text x="18" y="72" class="field id">PK id</text>
+    <text x="18" y="101" class="field">code · name</text><text x="18" y="130" class="field">total_semesters</text>
+    <text x="18" y="159" class="field">Unique: code</text>
+  </g>
+  <g transform="translate(830 170)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">courses</text><text x="18" y="72" class="field id">PK id · FK program_id</text>
+    <text x="18" y="101" class="field">course_code · title</text><text x="18" y="130" class="field">semester · credits</text>
+    <text x="18" y="159" class="field">FK created_by → profiles</text>
+  </g>
+  <g transform="translate(450 420)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">batches</text><text x="18" y="72" class="field id">PK id · FK program_id</text>
+    <text x="18" y="101" class="field">batch_name · start_year · end_year</text><text x="18" y="130" class="field">current_semester</text>
+    <text x="18" y="159" class="field">Unique: program_id + batch_name</text>
+  </g>
+  <g transform="translate(70 420)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">enrollments</text><text x="18" y="72" class="field id">PK id · FK student_id</text>
+    <text x="18" y="101" class="field">FK batch_id · status</text><text x="18" y="130" class="field">active · completed · dropped</text>
+    <text x="18" y="159" class="field">One active enrollment / student</text>
+  </g>
+  <g transform="translate(830 420)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">course_modules</text><text x="18" y="72" class="field id">PK id · FK course_id</text>
+    <text x="18" y="101" class="field">module_number · title</text><text x="18" y="130" class="field">description</text>
+    <text x="18" y="159" class="field">Unique: course_id + number</text>
+  </g>
+  <g transform="translate(1190 170)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">textbooks</text><text x="18" y="72" class="field id">PK id · FK course_id</text>
+    <text x="18" y="101" class="field">title · author · edition</text><text x="18" y="130" class="field">isbn · file_url</text>
+    <text x="18" y="159" class="field">Optional resource link</text>
+  </g>
+  <g transform="translate(1190 420)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">assignments</text><text x="18" y="72" class="field id">PK id · FK course_id</text>
+    <text x="18" y="101" class="field">FK teacher_id → profiles</text><text x="18" y="130" class="field">title · due_date · max_marks</text>
+    <text x="18" y="159" class="field">description · attachment_url</text>
+  </g>
+  <g transform="translate(830 660)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">course_materials</text><text x="18" y="72" class="field id">PK id · FK module_id</text>
+    <text x="18" y="101" class="field">title · material_type</text><text x="18" y="130" class="field">file_url · file_size_bytes</text>
+    <text x="18" y="159" class="field">FK uploaded_by → profiles</text>
+  </g>
+  <g transform="translate(1190 660)">
+    <rect width="300" height="180" rx="12" class="card"/><path d="M0 12Q0 0 12 0H288Q300 0 300 12V48H0Z" class="head"/>
+    <text x="18" y="31" class="name">submissions</text><text x="18" y="72" class="field id">PK id · FK assignment_id</text>
+    <text x="18" y="101" class="field">FK student_id → profiles</text><text x="18" y="130" class="field">file_url · submitted_at · notes</text>
+    <text x="18" y="159" class="field">marks_obtained · teacher_feedback</text>
+  </g>
+  <text x="70" y="952" class="subtitle">PK = primary key · FK = foreign key · UUID identifiers are used throughout; timestamps track key records.</text>
+  <text x="70" y="980" class="subtitle">RLS policies limit access by authenticated identity, staff role, course enrollment, and ownership of submissions/files.</text>
+</svg>

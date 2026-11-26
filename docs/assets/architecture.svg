@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800">
+  <defs>
+    <linearGradient id="header" x1="0" x2="1">
+      <stop offset="0" stop-color="#17243a"/>
+      <stop offset="1" stop-color="#315efb"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M1 1L11 6L1 11Z" fill="#62738e"/>
+    </marker>
+    <style>
+      .title{font:700 34px Arial,sans-serif;fill:#17243a}.subtitle{font:16px Arial,sans-serif;fill:#738097}
+      .h{font:700 20px Arial,sans-serif;fill:#fff}.b{font:16px Arial,sans-serif;fill:#34435b}
+      .s{font:14px Arial,sans-serif;fill:#64738a}.arrow{stroke:#62738e;stroke-width:3;fill:none;marker-end:url(#arrow)}
+      .card{fill:#fff;stroke:#dbe3f0;stroke-width:2}.soft{fill:#eef2ff}
+    </style>
+  </defs>
+  <rect width="1440" height="800" rx="22" fill="#f5f7fb"/>
+  <text x="64" y="62" class="title">Coursewise | High-level system architecture</text>
+  <text x="64" y="94" class="subtitle">A browser-based learning portal backed by Next.js and Supabase managed services</text>
+
+  <rect x="64" y="142" width="270" height="116" rx="16" class="card"/>
+  <rect x="64" y="142" width="270" height="48" rx="16" fill="url(#header)"/>
+  <path d="M64 174h270v16H64z" fill="url(#header)"/>
+  <text x="88" y="174" class="h">Users &amp; browser</text>
+  <text x="88" y="218" class="b">Students · Teachers · Admins</text>
+  <text x="88" y="242" class="s">Desktop or mobile web browser</text>
+
+  <rect x="390" y="132" width="460" height="390" rx="18" fill="#edf2ff" stroke="#cad6ff" stroke-width="2"/>
+  <text x="418" y="172" class="title" style="font-size:24px">Next.js web application</text>
+  <rect x="418" y="194" width="404" height="82" rx="12" class="card"/>
+  <text x="438" y="226" class="b" style="font-weight:700">App Router + React + TypeScript</text>
+  <text x="438" y="252" class="s">Landing, account, student and teacher screens</text>
+  <rect x="418" y="294" width="190" height="92" rx="12" class="card"/>
+  <text x="438" y="326" class="b" style="font-weight:700">Server actions</text>
+  <text x="438" y="352" class="s">Validate and save changes</text>
+  <rect x="632" y="294" width="190" height="92" rx="12" class="card"/>
+  <text x="652" y="326" class="b" style="font-weight:700">Middleware</text>
+  <text x="652" y="352" class="s">Session and route checks</text>
+  <rect x="418" y="404" width="404" height="86" rx="12" class="card"/>
+  <text x="438" y="438" class="b" style="font-weight:700">Supabase SSR client</text>
+  <text x="438" y="464" class="s">Cookie-backed authentication and data access</text>
+
+  <rect x="930" y="132" width="446" height="112" rx="16" class="card"/>
+  <rect x="930" y="132" width="446" height="48" rx="16" fill="#315efb"/>
+  <path d="M930 164h446v16H930z" fill="#315efb"/>
+  <text x="956" y="164" class="h">Supabase Auth</text>
+  <text x="956" y="208" class="b">Email/password · session cookies · JWT</text>
+
+  <rect x="930" y="302" width="446" height="150" rx="16" class="card"/>
+  <rect x="930" y="302" width="446" height="48" rx="16" fill="#17243a"/>
+  <path d="M930 334h446v16H930z" fill="#17243a"/>
+  <text x="956" y="334" class="h">Supabase PostgreSQL</text>
+  <text x="956" y="380" class="b">Profiles · programs · batches · enrollments</text>
+  <text x="956" y="408" class="b">Courses · modules · materials · assignments</text>
+  <text x="956" y="436" class="b">Submissions · row-level security policies</text>
+
+  <rect x="930" y="510" width="446" height="150" rx="16" class="card"/>
+  <rect x="930" y="510" width="446" height="48" rx="16" fill="#157a68"/>
+  <path d="M930 542h446v16H930z" fill="#157a68"/>
+  <text x="956" y="542" class="h">Supabase Storage</text>
+  <text x="956" y="588" class="b">Private PDF buckets for course and assignment files</text>
+  <text x="956" y="616" class="b">Student submissions · ownership-based access</text>
+  <text x="956" y="644" class="s">Short-lived signed links are generated for downloads</text>
+
+  <path d="M334 198H380" class="arrow"/>
+  <text x="338" y="184" class="s">HTTPS</text>
+  <path d="M850 226H912" class="arrow"/>
+  <text x="854" y="211" class="s">sign-in</text>
+  <path d="M850 356H912" class="arrow"/>
+  <text x="854" y="342" class="s">queries</text>
+  <path d="M850 448C890 448 884 582 912 582" class="arrow"/>
+  <text x="855" y="500" class="s">file access</text>
+  <path d="M850 448C892 448 878 404 912 404" class="arrow"/>
+  <text x="854" y="422" class="s">server-side data</text>
+
+  <rect x="64" y="574" width="786" height="132" rx="16" fill="#fff" stroke="#dbe3f0" stroke-width="2"/>
+  <text x="92" y="614" class="b" style="font-weight:700">Security boundaries</text>
+  <text x="92" y="646" class="s">1. Role-aware routes and server actions  ·  2. PostgreSQL RLS enforces row access</text>
+  <text x="92" y="674" class="s">3. Private PDF buckets restrict uploads/downloads  ·  4. File limits and PDF MIME checks</text>
+</svg>
