@@ -1,6 +1,6 @@
 # Coursewise
 
-A role-based course management app built with Next.js 14, TypeScript, Tailwind CSS, and Supabase.
+A role-based course management app built with Next.js 16, TypeScript, Tailwind CSS, and Supabase.
 
 ## Local setup
 
