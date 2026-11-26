@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LoadingLink } from "@/components/loading-link";
 import { Navigation } from "@/components/navigation";
 import { RegisterForm } from "@/components/auth-form";
 import { createClient } from "@/lib/supabase/server";
@@ -14,6 +14,6 @@ export default async function RegisterPage({ searchParams }: { searchParams: Pro
   if (programError || batchError) throw new Error(`Could not load registration options: ${programError?.message ?? batchError?.message}`);
   return <><Navigation /><main className="shell" style={{ maxWidth: 620 }}>
     <RegisterForm programs={(programs ?? []) as Program[]} batches={(batches ?? []) as Batch[]} error={params.error} />
-    <p className="muted">Already registered? <Link href="/login">Sign in</Link>.</p>
+    <p className="muted">Already registered? <LoadingLink href="/login">Sign in</LoadingLink>.</p>
   </main></>;
 }

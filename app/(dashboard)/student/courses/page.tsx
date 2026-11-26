@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { currentStudentCourses } from "@/lib/portal-data";
 import { getProfile } from "@/lib/supabase/server";
+import { LoadingLink } from "@/components/loading-link";
 import { SubmitButton } from "@/components/submit-button";
 
 export default async function StudentCoursesPage({ searchParams }: { searchParams: Promise<{ semester?: string | string[] }> }) {
@@ -29,7 +29,7 @@ export default async function StudentCoursesPage({ searchParams }: { searchParam
     </form>}
     {courses.length ? <div className="grid">{courses.map((course) => <article className="card" key={course.id}>
       <span className="badge">{course.course_code} · Semester {course.semester} · {course.credits} credits</span><h2>{course.title}</h2><p className="muted">{course.description || "Explore course modules and learning materials."}</p>
-      <Link className="button secondary" href={`/student/courses/${course.id}`}>Open course</Link>
+      <LoadingLink className="button secondary" href={`/student/courses/${course.id}`}>Open course</LoadingLink>
     </article>)}</div> : <div className="empty">{semester === "all" ? "No courses are available for your program yet." : `No courses are available for semester ${semester} yet.`}</div>}
   </>;
 }

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LoadingLink } from "@/components/loading-link";
 import { Navigation } from "@/components/navigation";
 
 export default function HomePage() {
@@ -11,8 +11,8 @@ export default function HomePage() {
           <h1>Everything your courses need, in one place.</h1>
           <p>Explore semester-wise courses, find learning materials, submit assignments, and keep teaching teams organized.</p>
           <div className="actions" style={{ marginTop: 26 }}>
-            <Link className="button" href="/register">Get started</Link>
-            <Link className="button secondary" href="/login">Sign in</Link>
+            <LoadingLink className="button" href="/register">Get started</LoadingLink>
+            <LoadingLink className="button secondary" href="/login">Sign in</LoadingLink>
           </div>
         </section>
         <section className="grid" style={{ marginTop: 24 }}>

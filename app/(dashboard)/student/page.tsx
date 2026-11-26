@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LoadingLink } from "@/components/loading-link";
 import { getProfile } from "@/lib/supabase/server";
 import { activeEnrollment, currentStudentCourses } from "@/lib/portal-data";
 import { createClient } from "@/lib/supabase/server";
@@ -18,12 +18,12 @@ export default async function StudentDashboard() {
     <div className="pagehead"><div><span className="eyebrow">Student workspace</span><h1>Welcome, {profile?.full_name}.</h1><p className="muted">{batch ? `${batch.programs?.name} · Batch ${batch.batch_name} · Semester ${batch.current_semester}` : "Your program enrollment is not set up yet."}</p></div></div>
     {!enrollment && <div className="notice">No active enrollment was found. Ask your institution to confirm your student batch.</div>}
     <section className="grid">
-      <article className="card"><span className="eyebrow">Current semester</span><h2>{courses.length}</h2><p className="muted">Courses available</p><Link className="button secondary" href="/student/courses">Browse courses</Link></article>
-      <article className="card"><span className="eyebrow">Upcoming</span><h2>{assignments?.length ?? 0}</h2><p className="muted">Assignments in your courses</p><Link className="button secondary" href="/student/assignments">View assignments</Link></article>
+      <article className="card"><span className="eyebrow">Current semester</span><h2>{courses.length}</h2><p className="muted">Courses available</p><LoadingLink className="button secondary" href="/student/courses">Browse courses</LoadingLink></article>
+      <article className="card"><span className="eyebrow">Upcoming</span><h2>{assignments?.length ?? 0}</h2><p className="muted">Assignments in your courses</p><LoadingLink className="button secondary" href="/student/assignments">View assignments</LoadingLink></article>
     </section>
     <section className="card" style={{ marginTop: 20 }}>
-      <div className="row"><h2>Upcoming assignments</h2><Link href="/student/assignments">All assignments →</Link></div>
-      {assignments?.length ? <div className="stack">{assignments.map((assignment) => <div className="row" key={assignment.id}><div><strong>{assignment.title}</strong><p className="muted">Due {formatDateTimeIST(assignment.due_date)}</p></div><Link className="button secondary" href={`/student/assignments/${assignment.id}`}>Open</Link></div>)}</div> : <p className="muted">Nothing due right now.</p>}
+      <div className="row"><h2>Upcoming assignments</h2><LoadingLink href="/student/assignments">All assignments →</LoadingLink></div>
+      {assignments?.length ? <div className="stack">{assignments.map((assignment) => <div className="row" key={assignment.id}><div><strong>{assignment.title}</strong><p className="muted">Due {formatDateTimeIST(assignment.due_date)}</p></div><LoadingLink className="button secondary" href={`/student/assignments/${assignment.id}`}>Open</LoadingLink></div>)}</div> : <p className="muted">Nothing due right now.</p>}
     </section>
   </>;
 }

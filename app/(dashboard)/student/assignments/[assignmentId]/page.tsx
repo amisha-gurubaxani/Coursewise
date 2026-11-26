@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { saveSubmission } from "@/app/actions";
 import { FileUpload } from "@/components/file-upload";
+import { LoadingLink } from "@/components/loading-link";
 import { signedFileUrl } from "@/lib/data";
 import { currentStudentCourses } from "@/lib/portal-data";
 import { formatDateTimeIST } from "@/lib/date-time";
@@ -31,7 +31,7 @@ export default async function StudentAssignmentPage({ params }: { params: Promis
   ]);
   const pastDue = new Date(assignment.due_date).getTime() < Date.now();
   return <>
-    <div className="pagehead"><div><Link href="/student/assignments" className="muted">← Assignments</Link><p><span className="badge">{course.course_code} · Semester {course.semester} · {assignment.max_marks} marks</span></p><h1>{assignment.title}</h1><p className="muted">{course.title} · Due {formatDateTimeIST(assignment.due_date)}</p></div></div>
+    <div className="pagehead"><div><LoadingLink href="/student/assignments" className="muted">← Assignments</LoadingLink><p><span className="badge">{course.course_code} · Semester {course.semester} · {assignment.max_marks} marks</span></p><h1>{assignment.title}</h1><p className="muted">{course.title} · Due {formatDateTimeIST(assignment.due_date)}</p></div></div>
     <section className="card"><h2>Instructions</h2><p className="muted">{assignment.description || "No additional instructions."}</p>{attachmentUrl && <a className="button secondary" href={attachmentUrl} target="_blank" rel="noreferrer">Download assignment PDF</a>}</section>
     <section className="card" style={{ marginTop: 18 }}><h2>Your submission</h2>
       {submission ? <div className="stack">

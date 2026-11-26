@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { gradeSubmission } from "@/app/actions";
+import { LoadingLink } from "@/components/loading-link";
 import { SubmitButton } from "@/components/submit-button";
 import { formatDateTimeIST } from "@/lib/date-time";
 import { signedFileUrl } from "@/lib/data";
@@ -25,7 +25,7 @@ export default async function TeacherAssignmentPage({ params }: { params: Promis
     submission, fileUrl: await signedFileUrl("submissions", submission.file_url),
   })));
   return <>
-    <div className="pagehead"><div><Link href="/teacher/assignments" className="muted">← Assignments</Link><p><span className="badge">{assignment.courses?.[0]?.course_code} · {assignment.max_marks} marks</span></p><h1>{assignment.title}</h1><p className="muted">{assignment.courses?.[0]?.title} · Due {formatDateTimeIST(assignment.due_date)}</p></div></div>
+    <div className="pagehead"><div><LoadingLink href="/teacher/assignments" className="muted">← Assignments</LoadingLink><p><span className="badge">{assignment.courses?.[0]?.course_code} · {assignment.max_marks} marks</span></p><h1>{assignment.title}</h1><p className="muted">{assignment.courses?.[0]?.title} · Due {formatDateTimeIST(assignment.due_date)}</p></div></div>
     <section className="card"><h2>Instructions</h2><p className="muted">{assignment.description || "No additional instructions."}</p>{attachmentUrl && <a className="button secondary" href={attachmentUrl} target="_blank" rel="noreferrer">Download assignment PDF</a>}</section>
     <section className="card" style={{ marginTop: 18 }}><h2>Submissions ({entries.length})</h2>
       {entries.length ? <div className="stack">{entries.map(({ submission, fileUrl }) => <article className="card" key={submission.id}>

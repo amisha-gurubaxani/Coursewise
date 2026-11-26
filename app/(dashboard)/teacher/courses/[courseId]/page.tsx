@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { createModule, createTextbook, moveModule, saveMaterial } from "@/app/actions";
 import { FileUpload } from "@/components/file-upload";
+import { LoadingLink } from "@/components/loading-link";
 import { SubmitButton } from "@/components/submit-button";
 import { signedFileUrl } from "@/lib/data";
 import { createClient } from "@/lib/supabase/server";
@@ -31,7 +31,7 @@ export default async function TeacherCoursePage({ params }: { params: Promise<{ 
     };
   }));
   return <>
-    <div className="pagehead"><div><Link href="/teacher/courses" className="muted">← Courses</Link><p><span className="badge">{course.programs?.[0]?.code} · Semester {course.semester}</span></p><h1>{course.title}</h1><p className="muted">{course.course_code} · {course.credits} credits · {course.description}</p></div><Link href="/teacher/assignments/new" className="button">New assignment</Link></div>
+    <div className="pagehead"><div><LoadingLink href="/teacher/courses" className="muted">← Courses</LoadingLink><p><span className="badge">{course.programs?.[0]?.code} · Semester {course.semester}</span></p><h1>{course.title}</h1><p className="muted">{course.course_code} · {course.credits} credits · {course.description}</p></div><LoadingLink href="/teacher/assignments/new" className="button">New assignment</LoadingLink></div>
     <section className="card">
       <h2>Syllabus modules</h2>
       {moduleCards.length ? <div className="stack">{moduleCards.map(({ module, materials }, index) => <article className="card" key={module.id}>

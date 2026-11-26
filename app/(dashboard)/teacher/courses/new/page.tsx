@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { createCourse } from "@/app/actions";
+import { LoadingLink } from "@/components/loading-link";
 import { SubmitButton } from "@/components/submit-button";
 import { createClient } from "@/lib/supabase/server";
 
@@ -8,7 +8,7 @@ export default async function NewCoursePage() {
   const { data: programs, error } = await supabase.from("programs").select("id,name,code,total_semesters").order("name");
   if (error) throw new Error(`Could not load programs: ${error.message}`);
   return <>
-    <div className="pagehead"><div><span className="eyebrow">Course catalog</span><h1>Create a course</h1><p className="muted">Set the program, semester, and course details.</p></div><Link href="/teacher/courses" className="button secondary">Back to courses</Link></div>
+    <div className="pagehead"><div><span className="eyebrow">Course catalog</span><h1>Create a course</h1><p className="muted">Set the program, semester, and course details.</p></div><LoadingLink href="/teacher/courses" className="button secondary">Back to courses</LoadingLink></div>
     {programs?.length ? <section className="card">
       <form className="form" action={createCourse}>
         <label className="field">Program<select name="program_id" required defaultValue=""><option value="" disabled>Select a program</option>{programs.map((program) => <option key={program.id} value={program.id}>{program.name} ({program.code})</option>)}</select></label>

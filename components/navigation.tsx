@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { getProfile } from "@/lib/supabase/server";
 import { signOut } from "@/app/actions";
+import { LoadingLink } from "@/components/loading-link";
 import { SubmitButton } from "@/components/submit-button";
 
 export async function Navigation() {
@@ -8,17 +8,17 @@ export async function Navigation() {
   const isTeacher = profile?.role === "teacher" || profile?.role === "admin";
   return (
     <header className="topbar">
-      <Link className="brand" href="/">Coursewise</Link>
+      <LoadingLink className="brand" href="/">Coursewise</LoadingLink>
       {profile ? (
         <nav className="navlinks" aria-label="Main navigation">
-          <Link href={isTeacher ? "/teacher" : "/student"}>Dashboard</Link>
-          <Link href={isTeacher ? "/teacher/courses" : "/student/courses"}>Courses</Link>
-          <Link href={isTeacher ? "/teacher/assignments" : "/student/assignments"}>Assignments</Link>
+          <LoadingLink href={isTeacher ? "/teacher" : "/student"}>Dashboard</LoadingLink>
+          <LoadingLink href={isTeacher ? "/teacher/courses" : "/student/courses"}>Courses</LoadingLink>
+          <LoadingLink href={isTeacher ? "/teacher/assignments" : "/student/assignments"}>Assignments</LoadingLink>
           <span>{profile.full_name}</span>
           <form action={signOut}><SubmitButton className="button secondary">Sign out</SubmitButton></form>
         </nav>
       ) : (
-        <nav className="navlinks"><Link href="/login">Sign in</Link><Link href="/register">Create account</Link></nav>
+        <nav className="navlinks"><LoadingLink href="/login">Sign in</LoadingLink><LoadingLink href="/register">Create account</LoadingLink></nav>
       )}
     </header>
   );

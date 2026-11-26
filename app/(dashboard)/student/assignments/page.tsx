@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { LoadingLink } from "@/components/loading-link";
 import { getProfile, createClient } from "@/lib/supabase/server";
 import { currentStudentCourses } from "@/lib/portal-data";
 import { SubmitButton } from "@/components/submit-button";
@@ -52,7 +52,7 @@ export default async function StudentAssignmentsPage({ searchParams }: { searchP
         <span className="badge">{course.course_code} · Semester {course.semester} · {assignment.max_marks} marks</span><h2>{assignment.title}</h2>
         <p className="muted">{course.title} · Due {formatDateTimeIST(assignment.due_date)}</p>
         <p className="muted">{isSubmitted ? mark === null ? "Submitted · awaiting grade" : `Graded · ${mark} / ${assignment.max_marks}` : new Date(assignment.due_date) < new Date() ? "Past due" : "Not submitted"}</p>
-      </div><Link className="button secondary" href={`/student/assignments/${assignment.id}`}>{isSubmitted ? "View status" : "Open assignment"}</Link></article>;
+      </div><LoadingLink className="button secondary" href={`/student/assignments/${assignment.id}`}>{isSubmitted ? "View status" : "Open assignment"}</LoadingLink></article>;
     })}</div> : <div className="empty">{semester === "all" ? "No assignments have been published for your program yet." : `No assignments have been published for semester ${semester} yet.`}</div>}
   </>;
 }
