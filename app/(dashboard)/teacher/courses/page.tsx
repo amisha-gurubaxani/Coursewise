@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SubmitButton } from "@/components/submit-button";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function TeacherCoursesPage({ searchParams }: { searchParams: Promise<{ program?: string; semester?: string }> }) {
@@ -19,7 +20,7 @@ export default async function TeacherCoursesPage({ searchParams }: { searchParam
     <form className="card row" method="get" style={{ marginBottom: 18 }}>
       <label className="field">Program<select name="program" defaultValue={params.program ?? ""}><option value="">All programs</option>{programs?.map((program) => <option key={program.id} value={program.id}>{program.name}</option>)}</select></label>
       <label className="field">Semester<input name="semester" type="number" min={1} max={12} defaultValue={params.semester ?? ""} placeholder="All semesters" /></label>
-      <div className="actions"><button className="button" type="submit">Filter</button><Link className="button secondary" href="/teacher/courses">Clear</Link></div>
+      <div className="actions"><SubmitButton nativeSubmit>Filter</SubmitButton><Link className="button secondary" href="/teacher/courses">Clear</Link></div>
     </form>
     {courses?.length ? <div className="grid">{courses.map((course) => <article className="card" key={course.id}>
       <span className="badge">{course.programs?.[0]?.code ?? "Program"} · Semester {course.semester}</span>

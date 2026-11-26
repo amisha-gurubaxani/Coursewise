@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createModule, createTextbook, moveModule, saveMaterial } from "@/app/actions";
 import { FileUpload } from "@/components/file-upload";
+import { SubmitButton } from "@/components/submit-button";
 import { signedFileUrl } from "@/lib/data";
 import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
@@ -36,8 +37,8 @@ export default async function TeacherCoursePage({ params }: { params: Promise<{ 
       {moduleCards.length ? <div className="stack">{moduleCards.map(({ module, materials }, index) => <article className="card" key={module.id}>
         <div className="row"><div><span className="badge">Module {module.module_number}</span><h3>{module.title}</h3><p className="muted">{module.description}</p></div>
           <div className="actions">
-            <form action={moveModule}><input type="hidden" name="module_id" value={module.id} /><input type="hidden" name="direction" value="-1" /><button className="button secondary" type="submit" disabled={index === 0}>Move up</button></form>
-            <form action={moveModule}><input type="hidden" name="module_id" value={module.id} /><input type="hidden" name="direction" value="1" /><button className="button secondary" type="submit" disabled={index === moduleCards.length - 1}>Move down</button></form>
+            <form action={moveModule}><input type="hidden" name="module_id" value={module.id} /><input type="hidden" name="direction" value="-1" /><SubmitButton className="button secondary" disabled={index === 0}>Move up</SubmitButton></form>
+            <form action={moveModule}><input type="hidden" name="module_id" value={module.id} /><input type="hidden" name="direction" value="1" /><SubmitButton className="button secondary" disabled={index === moduleCards.length - 1}>Move down</SubmitButton></form>
           </div>
         </div>
         <div className="stack">{materials.map((material) => <div className="row" key={material.id}><span>{material.title} <span className="muted">({material.material_type})</span></span>{material.downloadUrl && <a className="button secondary" href={material.downloadUrl} target="_blank" rel="noreferrer">Download PDF</a>}</div>)}</div>
@@ -50,7 +51,7 @@ export default async function TeacherCoursePage({ params }: { params: Promise<{ 
         <label className="field">Module number<input type="number" min={1} name="module_number" required /></label>
         <label className="field">Title<input name="title" required maxLength={160} /></label>
         <label className="field">Description<textarea name="description" rows={3} maxLength={2000} /></label>
-        <button className="button" type="submit">Add module</button>
+        <SubmitButton>Add module</SubmitButton>
       </form>
     </section>
     <section className="card" style={{ marginTop: 18 }}>
@@ -64,7 +65,7 @@ export default async function TeacherCoursePage({ params }: { params: Promise<{ 
         <label className="field">Edition<input name="edition" maxLength={80} /></label>
         <label className="field">ISBN<input name="isbn" maxLength={32} /></label>
         <label className="field">PDF or purchase link<input name="file_url" type="url" /></label>
-        <button className="button" type="submit">Add textbook</button>
+        <SubmitButton>Add textbook</SubmitButton>
       </form>
     </section>
   </>;

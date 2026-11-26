@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { SubmitButton } from "@/components/submit-button";
 import { createClient } from "@/lib/supabase/client";
 
 type Props = {
@@ -63,7 +64,7 @@ export function FileUpload({ bucket, action, fields, label }: Props) {
       {(bucket === "course-materials") && <input type="hidden" name="file_size_bytes" value={size} />}
       <label className="field">{label}<input type="file" accept="application/pdf,.pdf" required disabled={busy} onChange={(event) => void upload(event.target.files?.[0])} /></label>
       {status && <p className={status.includes("failed") || status.includes("Choose") || status.includes("sign in") ? "notice error" : "muted"} role="status">{status}</p>}
-      <button className="button" type="submit" disabled={busy || !path}>{busy ? "Uploading…" : "Save PDF"}</button>
+      <SubmitButton disabled={busy || !path} loading={busy} loadingText={busy ? "Uploading…" : "Saving…"}>Save PDF</SubmitButton>
     </form>
   );
 }

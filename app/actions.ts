@@ -123,7 +123,20 @@ export async function createTextbook(form: FormData) {
 
 export async function createAssignment(form: FormData) {
   const { supabase, user } = await requireRole(["teacher", "admin"]);
-  const dueDate = new Date(required(form, "due_date"));
+  const dueDateInput = required(form, "due_date_local");
+  const dateParts = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/.exec(dueDateInput);
+  if (!dateParts) throw new Error("Enter a valid due date and positive whole-number marks.");
+  const [, yearPart, monthPart, dayPart, hourPart, minutePart] = dateParts;
+  const [year, month, day, hour, minute] = [yearPart, monthPart, dayPart, hourPart, minutePart].map(Number);
+  const localDateAsUtc = new Date(Date.UTC(year, month - 1, day, hour, minute));
+  if (
+    localDateAsUtc.getUTCFullYear() !== year ||
+    localDateAsUtc.getUTCMonth() !== month - 1 ||
+    localDateAsUtc.getUTCDate() !== day ||
+    localDateAsUtc.getUTCHours() !== hour ||
+    localDateAsUtc.getUTCMinutes() !== minute
+  ) throw new Error("Enter a valid due date and positive whole-number marks.");
+  const dueDate = new Date(localDateAsUtc.getTime() - (5 * 60 + 30) * 60 * 1000);
   const maxMarks = Number(required(form, "max_marks"));
   if (!Number.isFinite(dueDate.getTime()) || !Number.isInteger(maxMarks) || maxMarks < 1) throw new Error("Enter a valid due date and positive whole-number marks.");
   const attachment = String(form.get("attachment_url") ?? "").trim();

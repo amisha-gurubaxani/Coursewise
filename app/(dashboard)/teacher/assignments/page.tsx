@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createClient, getProfile } from "@/lib/supabase/server";
+import { formatDateTimeIST } from "@/lib/date-time";
 
 export default async function TeacherAssignmentsPage() {
   const profile = await getProfile();
@@ -11,7 +12,7 @@ export default async function TeacherAssignmentsPage() {
   return <>
     <div className="pagehead"><div><span className="eyebrow">Teaching</span><h1>Assignments</h1><p className="muted">Create deadlines and review student submissions.</p></div><Link className="button" href="/teacher/assignments/new">New assignment</Link></div>
     {assignments?.length ? <div className="stack">{assignments.map((assignment) => <article className="card row" key={assignment.id}><div>
-      <span className="badge">{assignment.courses?.[0]?.course_code} · {assignment.max_marks} marks</span><h2>{assignment.title}</h2><p className="muted">{assignment.courses?.[0]?.title} · Due {new Date(assignment.due_date).toLocaleString()}</p>
+      <span className="badge">{assignment.courses?.[0]?.course_code} · {assignment.max_marks} marks</span><h2>{assignment.title}</h2><p className="muted">{assignment.courses?.[0]?.title} · Due {formatDateTimeIST(assignment.due_date)}</p>
     </div><Link className="button secondary" href={`/teacher/assignments/${assignment.id}`}>View submissions</Link></article>)}</div> : <div className="empty">No assignments yet. Create one to set your first deadline.</div>}
   </>;
 }

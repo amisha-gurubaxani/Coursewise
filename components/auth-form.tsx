@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { signIn, signUp } from "@/app/actions";
+import { SubmitButton } from "@/components/submit-button";
 import type { Batch, Program } from "@/lib/types";
 
 export function LoginForm({ error, message }: { error?: string; message?: string }) {
@@ -14,7 +15,7 @@ export function LoginForm({ error, message }: { error?: string; message?: string
       <form className="form" action={signIn}>
         <label className="field">Email<input type="email" name="email" autoComplete="email" required /></label>
         <label className="field">Password<input type="password" name="password" autoComplete="current-password" required /></label>
-        <button className="button" type="submit">Sign in</button>
+        <SubmitButton>Sign in</SubmitButton>
       </form>
     </div>
   );
@@ -58,7 +59,7 @@ export function RegisterForm({ programs, batches, error }: { programs: Program[]
             </label>
           </>
         )}
-        <button className="button" type="submit">Create account</button>
+        <SubmitButton>Create account</SubmitButton>
       </form>
     </div>
   );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { createCourse } from "@/app/actions";
+import { SubmitButton } from "@/components/submit-button";
 import { createClient } from "@/lib/supabase/server";
 
 export default async function NewCoursePage() {
@@ -16,7 +17,7 @@ export default async function NewCoursePage() {
         <label className="field">Description<textarea name="description" rows={4} maxLength={3000} /></label>
         <label className="field">Semester<input name="semester" type="number" min={1} max={12} required /></label>
         <label className="field">Credits<input name="credits" type="number" min={1} max={30} defaultValue={4} required /></label>
-        <button className="button" type="submit">Create course</button>
+        <SubmitButton>Create course</SubmitButton>
       </form>
     </section> : <div className="notice">No programs are configured. Run the Supabase seed script first.</div>}
   </>;

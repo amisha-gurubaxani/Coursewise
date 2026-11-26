@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getProfile, createClient } from "@/lib/supabase/server";
 import { currentStudentCourses } from "@/lib/portal-data";
+import { SubmitButton } from "@/components/submit-button";
+import { formatDateTimeIST } from "@/lib/date-time";
 
 export default async function StudentAssignmentsPage({ searchParams }: { searchParams: Promise<{ semester?: string | string[] }> }) {
   const params = await searchParams;
@@ -41,14 +43,14 @@ export default async function StudentAssignmentsPage({ searchParams }: { searchP
           ))}
         </select>
       </label>
-      <div className="actions"><button className="button" type="submit">Show assignments</button></div>
+      <div className="actions"><SubmitButton nativeSubmit>Show assignments</SubmitButton></div>
     </form>}
     {assignmentCards.length ? <div className="stack">{assignmentCards.map(({ assignment, course }) => {
       const mark = submitted.get(assignment.id);
       const isSubmitted = submitted.has(assignment.id);
       return <article className="card row" key={assignment.id}><div>
         <span className="badge">{course.course_code} · Semester {course.semester} · {assignment.max_marks} marks</span><h2>{assignment.title}</h2>
-        <p className="muted">{course.title} · Due {new Date(assignment.due_date).toLocaleString()}</p>
+        <p className="muted">{course.title} · Due {formatDateTimeIST(assignment.due_date)}</p>
         <p className="muted">{isSubmitted ? mark === null ? "Submitted · awaiting grade" : `Graded · ${mark} / ${assignment.max_marks}` : new Date(assignment.due_date) < new Date() ? "Past due" : "Not submitted"}</p>
       </div><Link className="button secondary" href={`/student/assignments/${assignment.id}`}>{isSubmitted ? "View status" : "Open assignment"}</Link></article>;
     })}</div> : <div className="empty">{semester === "all" ? "No assignments have been published for your program yet." : `No assignments have been published for semester ${semester} yet.`}</div>}

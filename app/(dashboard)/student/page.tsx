@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getProfile } from "@/lib/supabase/server";
 import { activeEnrollment, currentStudentCourses } from "@/lib/portal-data";
 import { createClient } from "@/lib/supabase/server";
+import { formatDateTimeIST } from "@/lib/date-time";
 
 export default async function StudentDashboard() {
   const profile = await getProfile();
@@ -22,7 +23,7 @@ export default async function StudentDashboard() {
     </section>
     <section className="card" style={{ marginTop: 20 }}>
       <div className="row"><h2>Upcoming assignments</h2><Link href="/student/assignments">All assignments →</Link></div>
-      {assignments?.length ? <div className="stack">{assignments.map((assignment) => <div className="row" key={assignment.id}><div><strong>{assignment.title}</strong><p className="muted">Due {new Date(assignment.due_date).toLocaleString()}</p></div><Link className="button secondary" href={`/student/assignments/${assignment.id}`}>Open</Link></div>)}</div> : <p className="muted">Nothing due right now.</p>}
+      {assignments?.length ? <div className="stack">{assignments.map((assignment) => <div className="row" key={assignment.id}><div><strong>{assignment.title}</strong><p className="muted">Due {formatDateTimeIST(assignment.due_date)}</p></div><Link className="button secondary" href={`/student/assignments/${assignment.id}`}>Open</Link></div>)}</div> : <p className="muted">Nothing due right now.</p>}
     </section>
   </>;
 }

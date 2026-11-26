@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { currentStudentCourses } from "@/lib/portal-data";
 import { getProfile } from "@/lib/supabase/server";
+import { SubmitButton } from "@/components/submit-button";
 
 export default async function StudentCoursesPage({ searchParams }: { searchParams: Promise<{ semester?: string | string[] }> }) {
   const params = await searchParams;
@@ -24,7 +25,7 @@ export default async function StudentCoursesPage({ searchParams }: { searchParam
           ))}
         </select>
       </label>
-      <div className="actions"><button className="button" type="submit">Show courses</button></div>
+      <div className="actions"><SubmitButton nativeSubmit>Show courses</SubmitButton></div>
     </form>}
     {courses.length ? <div className="grid">{courses.map((course) => <article className="card" key={course.id}>
       <span className="badge">{course.course_code} · Semester {course.semester} · {course.credits} credits</span><h2>{course.title}</h2><p className="muted">{course.description || "Explore course modules and learning materials."}</p>
